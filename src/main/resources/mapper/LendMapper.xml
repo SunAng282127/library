@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.library.dao.LendMapper">
+
+    <update id="bookReturnOne">
+        update lend_list
+        set back_date = #{backDate}
+        where book_id = #{bookId}
+          and back_date is null;
+    </update>
+
+    <update id="bookReturnTwo" parameterType="long">
+        update book_info
+        set state = 1
+        where book_id = #{bookId}
+    </update>
+
+    <insert id="bookLendOne">
+        insert into lend_list(book_id, reader_id, lend_date)
+        values (#{bookId}, #{readerId}, #{lendDate})
+    </insert>
+
+    <update id="bookLendTwo" parameterType="long">
+        update book_info
+        set state = 0
+        where book_id = #{bookId}
+    </update>
+
+    <select id="lendList" resultType="com.sun.library.pojo.Lend">
+        select sernum as sernum, book_id as bookId, reader_id as readerId, lend_date as lendDate, back_date as backDate
+        from lend_list
+    </select>
+
+    <select id="myLendList" parameterType="int" resultType="com.sun.library.pojo.Lend">
+        select *
+        from lend_list
+        where reader_id = #{readerId}
+    </select>
+
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.library.dao.ReaderInfoMapper">
+    <select id="getAllReaderInfo" resultType="com.sun.library.pojo.ReaderInfo">
+        select reader_id as readerId, name, sex, birth, address, telcode
+        from reader_info
+    </select>
+
+    <select id="findReaderInfoByReaderId" parameterType="int" resultType="com.sun.library.pojo.ReaderInfo">
+        select reader_id as readerId, name, sex, birth, address, telcode
+        from reader_info
+        where reader_id = #{readerId}
+    </select>
+
+    <delete id="deleteReaderInfo" parameterType="int">
+        delete
+        from reader_info
+        where reader_id = #{readerId}
+    </delete>
+
+    <update id="editReaderInfo" parameterType="com.sun.library.pojo.ReaderInfo">
+        update reader_info
+        set name    = #{name},
+            sex     = #{sex},
+            birth   = #{birth},
+            address = #{address},
+            telcode = #{telcode}
+        where reader_id = #{readerId}
+    </update>
+
+    <insert id="addReaderInfo" parameterType="com.sun.library.pojo.ReaderInfo">
+        insert into reader_info (reader_id, name, sex, birth, address, telcode)
+        values (#{readerId}, #{name}, #{sex}, #{birth}, #{address}, #{telcode})
+    </insert>
+</mapper>

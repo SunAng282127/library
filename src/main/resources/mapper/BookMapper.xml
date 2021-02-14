@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.library.dao.BookMapper">
+    <select id="matchBook" parameterType="String" resultType="int">
+        select count(*)
+        from book_info
+        where book_id like #{searchWord}
+           or name like #{searchWord}
+    </select>
+
+    <select id="queryBook" parameterType="String" resultType="com.sun.library.pojo.Book">
+        select book_id as bookId,
+               name,
+               author,
+               publish,
+               ISBN,
+               introduction, language, price, pubdate, class_id, pressmark, state
+        from book_info
+        where book_id like #{searchWord}
+           or name like #{searchWord}
+    </select>
+
+    <select id="getAllBooks" resultType="com.sun.library.pojo.Book">
+        select book_id as bookId,
+               name,
+               author,
+               publish,
+               ISBN,
+               introduction, language, price, pubdate, class_id, pressmark, state
+        from book_info;
+    </select>
+
+    <delete id="deleteBook" parameterType="long">
+        delete
+        from book_info
+        where book_id = #{bookId}
+    </delete>
+
+    <insert id="addBook" parameterType="com.sun.library.pojo.Book">
+        insert into book_info (name, author, publish, ISBN, introduction, language, price, pubdate, class_id, pressmark,
+                               state)
+        values (#{name}, #{author}, #{ publish}, #{isbn}, #{introduction}, #{language}, #{price}, #{pubdate},
+                #{classId}, #{pressmark}, #{state})
+    </insert>
+
+    <select id="getBook" parameterType="long" resultType="com.sun.library.pojo.Book">
+        select book_id as bookId,
+               name,
+               author,
+               publish,
+               ISBN,
+               introduction, language, price, pubdate, class_id, pressmark, state
+        from book_info
+        where book_id = #{bookId}
+    </select>
+
+    <update id="editBook" parameterType="com.sun.library.pojo.Book">
+        update book_info
+        set name         = #{name},
+            author       = #{author},
+            publish      = #{publish},
+            ISBN         = #{isbn},
+            introduction = #{introduction},
+            language     = #{language},
+            price        = #{price},
+            pubdate      = #{pubdate},
+            class_id     = #{classId},
+            pressmark    = #{pressmark},
+            state        = #{state}
+        where book_id = #{bookId}
+    </update>
+</mapper>
