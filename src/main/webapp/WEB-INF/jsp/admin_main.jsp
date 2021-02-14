@@ -1,18 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 君行天下
-  Date: 2017/7/23
-  Time: 17:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8"  %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>管理主页</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/jquery-3.2.1.js"></script>
+    <script src="/static/js/bootstrap.min.js" ></script>
     <style>
         body{
             margin: 0;
@@ -30,7 +23,7 @@
     </style>
 
 </head>
-<body background="img/281289-106.jpg">
+<body background="/static/images/281289-106.jpg">
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">

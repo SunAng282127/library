@@ -41,7 +41,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>library-dispatchServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <!--编码过滤器,防止前端输入的中文，在后端出现乱码-->
@@ -59,7 +59,7 @@
     </filter>
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </filter-mapping>
 </web-app>
         

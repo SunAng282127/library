@@ -3,12 +3,12 @@
 <html>
 <head>
     <title>《 ${detail.name}》</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/jquery-3.2.1.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <style>
-        body{
-            background-color: rgb(240,242,245);
+        body {
+            background-color: rgb(240, 242, 245);
         }
     </style>
 </head>
@@ -21,28 +21,29 @@
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li class="active">
-                    <a href="reader_querybook.html" >
+                    <a href="reader_querybook.html">
                         图书查询
                     </a>
                 </li>
                 <li>
-                    <a href="reader_info.html" >
+                    <a href="reader_info.html">
                         个人信息
                     </a>
                 </li>
-                <li >
-                    <a href="mylend.html" >
+                <li>
+                    <a href="mylend.html">
                         我的借还
                     </a>
                 </li>
-                <li >
-                    <a href="reader_repasswd.html" >
+                <li>
+                    <a href="reader_repasswd.html">
                         密码修改
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="reader_info.html"><span class="glyphicon glyphicon-user"></span>&nbsp;${readercard.name}，已登录</a></li>
+                <li><a href="reader_info.html"><span class="glyphicon glyphicon-user"></span>&nbsp;${readercard.name}，已登录</a>
+                </li>
                 <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
